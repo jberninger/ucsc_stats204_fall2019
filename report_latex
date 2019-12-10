@@ -7,6 +7,8 @@
 \usepackage{xcolor}
 \usepackage{caption}
 \usepackage{titlesec}
+\usepackage{hyperref}
+\PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
 
 %\titleformat{\section}[block]
  % {\fontsize{12}{15}\bfseries\filcenter}
@@ -311,7 +313,7 @@ $$ \epsilon\overset{\text{iid}} \sim{}N(0, \sigma^2)$$ for every $\epsilon$. We 
 
 Figure \ref{fig:Res_Fit} shows that the residuals look approximately symmetric about the zero line for fitted values smaller 15. Fitted values greater than 15 exhibit a clear pattern of these residuals; this means that a subset of our residuals clearly violate our model assumptions. For large fitted values, we have mostly negative residuals, indicating that the predicted points are much higher than our actual values. It follows that our model is over predicting for large values of logTotalValue. Our initial reaction was that there were likely a high number of repeat values for large logTotalValues; this may cause a pattern in the residual plot. However, we did not find a problem with repeated values. We re-evaluated the histogram of logTotalValue and saw that the distribution is not perfectly symmetric - it is skewed with a left tail. It's possible that this distorts the fit of our LM-Lasso model and is one possible explanation for the residual pattern.
 
-Figure \ref{fig:Res_Lev} shows that outliers may be identified using Cook's distance as a threshold. Cook’s distance measures the influence that each observation has on the predicted outcome, and can be computed for observation $i$ using: 
+Figure \ref{fig:Res_Lev} shows that outliers may be identified using Cook's distance as a threshold, which measures the influence that each observation has on the predicted outcome, and can be computed for observation $i$ using: 
 
 $$D{_i}=\frac{\sum_{j=1}^{n}\left( \hat{y}_{j} - \hat{y}_{j \left(i \right)} \right)^{2}}{pMSE}$$
 
@@ -323,9 +325,9 @@ There are several areas for further study. Considering different transformations
 \subsection{Reproducing This Work}
 A CSV of the data and all relevant \textbf{R} code can be found at:
 \\
-1. \url{https://github.com/jberninger/ucsc\_stats204\_fall2019}
+1. \small{\url{https://github.com/jberninger/ucsc\_stats204\_fall2019}}
 \\
-2. \url{https://github.com/kelseyblackstone/STAT204\_Final}
+2. \small{\url{https://github.com/kelseyblackstone/STAT204\_Final}}
 
 \begin{table*}[ht]
 \centering
